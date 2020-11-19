@@ -4,12 +4,15 @@ import HomePage from './components/HomePage';
 import SwapList from './components/SwapList';
 import Deposit from './components/Deposit';
 import Account from './components/Account';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <Router>
       
     <div className="App">
+      <Header />
     <Switch>
       <Route exact path='/'>
         <HomePage />
@@ -24,6 +27,7 @@ function App() {
         <Account />
       </Route>
       </Switch>
+      <Footer />
     </div>
     </Router>
     
