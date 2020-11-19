@@ -112,7 +112,7 @@ class SwapItem extends Component {
     super(props);
     this.state = {
       isAdded: true,
-      totalItem: 0,
+      totalItem:0,
     };
     
   }
@@ -123,22 +123,14 @@ class SwapItem extends Component {
     });
   }
 
-  increment() {
-    if(this.state.totalItem< this.props.quantity )
-    this.setState({
-      totalItem: this.state.totalItem + 1,
-    });
-  }
+  
 
-  decrement() {
-    if(this.state.totalItem>0)
-    this.setState({
-      totalItem: this.state.totalItem - 1,
-    });
-  }
+  
+
 
   render() {
-    const { name, image, category, location, quantity, id } = this.props;
+    const { name, image, category, location, quantity, id, increment, decrement } = this.props;
+    const {totalItem}= this.state;
     return (
       <div>
         <DIV>
@@ -160,18 +152,25 @@ class SwapItem extends Component {
           </div>
           <div className="addToCart">
             <button
-              onClick={(e) => {
-                this.increment();
+              onClick={() =>{
+                if(totalItem  < quantity){
+                  this.setState({totalItem: totalItem + 1});
+                  increment();
+        
+                }
               }}
             >
               {" "}
               +{" "}
             </button>
-            <div>{this.state.totalItem}
+            <div>{totalItem}
             </div>
             <button
-              onClick={(e) => {
-                this.decrement();
+            onClick={() => {
+                if(totalItem>0) {
+                  this.setState({totalItem: totalItem - 1});
+                  decrement();
+                };
               }}
             >
               {" "}
