@@ -15,7 +15,7 @@ const DIV = styled.div`
  }
 
  .productdepo {
-     display:flex
+     display:flex;
      justify-content: column;
      align-items: center;
 
