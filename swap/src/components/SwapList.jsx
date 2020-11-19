@@ -88,6 +88,7 @@ class SwapList extends React.Component {
   }
 
   render() {
+    const { swaps, status } = this.state;
     return (
       <div className="SwapList">
          <div className="category">
@@ -100,47 +101,62 @@ class SwapList extends React.Component {
             <button type="button" onClick={this.fish}>
               Fish
             </button>
-            <button type="button" onClick={this.activitytoshare}>
-              Activité à partager
+            <button type="button" onClick={this.cereals}>
+              Cereals
             </button>
-            <button type="button" onClick={this.exhibition}>
-              Expositions
+            <button type="button" onClick={this.fruits}>
+              Fruits
             </button>
-            <button type="button" onClick={this.theater}>
-              Théatre
+            <button type="button" onClick={this.vegetables}>
+              Vegetables
             </button>
-            <button type="button" onClick={this.game}>
-              Jeu
+            <button type="button" onClick={this.tools}>
+              Tools
             </button>
-            <button type="button" onClick={this.visit}>
-              Visite
-            </button>
-            <button type="button" onClick={this.film}>
-              Film / Projection
-            </button>
-            <button type="button" onClick={this.conference}>
-              Conférence
-            </button>
-            <button type="button" onClick={this.meeting}>
-              Rencontre
+            <button type="button" onClick={this.wood}>
+              Wood
             </button>
             <button type="button" onClick={this.showAll}>
-              Tous
+              All
             </button>
           </div>
         <ul>
-          {this.state.swaps
-            .filter((swap) => {
-              if (this.state.swapDisplayed === true) {
-                return swap;
+        {swaps.filter((event) => {
+              console.log(status);
+              if (status === 'all') {
+                return true;
               }
-              return true;
-            })
-            .map((swap) => {
+              if (status === 'drink') {
+                return event.category === 'Drink';
+              }
+              if (status === 'meat') {
+                return event.category === 'Meat';
+              }
+              if (status === 'fish') {
+                return event.category === 'Fish';
+              }
+              if (status === 'cereals') {
+                return event.category === 'Cereals';
+              }
+              if (status === 'fruits') {
+                return event.category === 'Fruits';
+              }
+              if (status === 'vegetables') {
+                return event.category === 'Vegetables';
+              }
+              if (status === 'tools') {
+                return event.category === 'Tools';
+              }
+              if (status === 'wood') {
+                return event.category === 'Wood';
+              }
+              return event.category === '';
+            }).map((event) => {
               return (
-                <SwapItem
-                  key={swap.id} {...swap}
-                />
+                <li key={event.id}>
+                  {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+                  <SwapItem {...event} />
+                </li>
               );
             })}
         </ul>
