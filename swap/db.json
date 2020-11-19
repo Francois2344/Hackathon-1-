@@ -13,6 +13,27 @@
   "image": "https://cdn.pixabay.com/photo/2020/03/21/13/12/quail-4953831_960_720.jpg", 
   "location": "Montmirail",
   "quantity": "6"
+} ,{
+  "id" : "3",
+  "category" : "food",
+  "name": "boar",
+  "image": "https://la-thierache.fr/wp-content/uploads/2018/09/e340598eb496b209d5916e09cf4d1695.jpg", 
+  "location": "Montmirail",
+  "quantity": "1"
+} ,{
+  "id" : "4",
+  "category" : "livestock",
+  "name": "rabbit",
+  "image": "https://lh3.googleusercontent.com/proxy/4L_gvo_Q1v4IAb_RRIYR3agAJ3402rHr-X8t_eBY1zV6XBUgtM2dXkQSFcMpf3h0N5ujuj2YZi2OSv26G-lqqIvbLfku2H-qQhBcf0uipO1-id_kV_2T3EywxqxpP9erN_f6mqwu2nnYb04", 
+  "location": "Kemper",
+  "quantity": "3"
+} ,{
+  "id" : "5",
+  "category" : "clothes",
+  "name": "armour",
+  "image": "https://resize-parismatch.lanmedia.fr/img/var/news/storage/images/paris-match/actu/insolite/un-homme-habille-d-une-armure-medievale-traverse-la-bretagne-1557500/25316213-1-fre-FR/Un-homme-habille-d-une-armure-medievale-traverse-la-Bretagne.jpg", 
+  "location": "Naoned",
+  "quantity": "1"
 } 
 ]
 
