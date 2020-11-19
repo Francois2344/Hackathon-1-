@@ -123,11 +123,6 @@ class SwapItem extends Component {
     });
   }
 
-  
-
-  
-
-
   render() {
     const { name, image, category, location, quantity, id, increment, decrement } = this.props;
     const {totalItem}= this.state;
