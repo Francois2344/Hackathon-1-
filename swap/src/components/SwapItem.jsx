@@ -112,8 +112,9 @@ class SwapItem extends Component {
     super(props);
     this.state = {
       isAdded: true,
-      totalItem: null,
+      totalItem: 0,
     };
+    this.increment=this.increment.bind(this);
   }
 
   addToCart() {
@@ -123,12 +124,14 @@ class SwapItem extends Component {
   }
 
   increment() {
+    if(this.state.totalItem< this.props.quantity )
     this.setState({
       totalItem: this.state.totalItem + 1,
     });
   }
 
   decrement() {
+    if(this.state.totalItem>0)
     this.setState({
       totalItem: this.state.totalItem - 1,
     });
@@ -164,14 +167,8 @@ class SwapItem extends Component {
               {" "}
               +{" "}
             </button>
-            <input
-              type="number"
-              className="form-input"
-              name="Total"
-              id="total"
-              max={quantity}
-              min="0"
-            />
+            <div>{this.state.totalItem}
+            </div>
             <button
               onClick={(e) => {
                 this.decrement();
