@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import Knight from './pictos/Knight.svg';
 import Pannier from './pictos/panier.png';
 
+
 const FooterWrap = styled.div`
 height: 3rem;
 background-color: rgb(203, 57, 53);
