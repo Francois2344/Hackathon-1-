@@ -13,9 +13,7 @@ align-content: center;
 const HomePage = () => {
     return (
         <HomeWrapper>
-            
             <HomeButton />
-            
         </HomeWrapper>
     )
     }
