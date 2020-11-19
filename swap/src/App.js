@@ -6,6 +6,7 @@ import Deposit from './components/Deposit';
 import Account from './components/Account';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import {TinyButton as ScrollUpButton} from "react-scroll-up-button";
 
 function App() {
   return (
@@ -19,6 +20,14 @@ function App() {
       </Route>
       <Route path='/SwapList'>
         <SwapList />
+        <ScrollUpButton 
+        style={{
+          backgroundColor: 'none',
+          borderRadius: '50%',
+          width: '50px',
+          height: '50px',
+          transform: 'translateY(-3rem)'
+        }}/>
       </Route>
       <Route path='/Deposit'>
         <Deposit />
