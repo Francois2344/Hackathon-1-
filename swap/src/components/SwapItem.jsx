@@ -130,10 +130,10 @@ class SwapItem extends Component {
               <h3 className="name">{name}</h3>
             </div>
             <div className="swapLocation">
-              <h4 className="location">Quantity : {quantity}</h4>
+              <h4 className="quantity">Quantity : {quantity}</h4>
             </div>
             <div className="swapLocation">
-              <h4 className="location">Where : {location}</h4>
+              <h4 className="where">Where : {location}</h4>
             </div>
           </div>
           <div className="addToCart">
