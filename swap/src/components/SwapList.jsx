@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import SwapItem from "./SwapItem";
 import styled from "styled-components";
 
@@ -59,15 +58,9 @@ class SwapList extends React.Component {
   }
 
   fetchSwaps() {
-    axios
-      .get(
-        `https://raw.githubusercontent.com/Francois2344/hackathon1/main/swap/db.json`
-      )
-      .then((response) => {
         this.setState({
-          swaps: response.data,
+          swaps: JSON.parse(localStorage.getItem("stuff")),
         });
-      });
   }
 
   food() {
