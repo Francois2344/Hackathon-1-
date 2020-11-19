@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import {Link} from 'react-router-dom';
 
 const HomeButtonWrap = styled.div`
   display: flex;
@@ -42,8 +43,8 @@ class HomeButton extends Component {
   render() {
     return (
       <HomeButtonWrap>
-        <DepositButton>Deposit</DepositButton>
-        <SearchButton>Looking for Something ?</SearchButton>
+        <Link to='/Deposit'><DepositButton>Deposit</DepositButton></Link>
+        <Link to='/SwapList'><SearchButton>Looking for Something ?</SearchButton></Link>
       </HomeButtonWrap>
     );
   }
