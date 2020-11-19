@@ -60,25 +60,25 @@ const DIV = styled.div`
 `;
 
 function Deposit() {
+  const [stuff, setStuff] = React.useState(
+    JSON.parse(localStorage.getItem("stuff"))
+  );
   const [form, setForm] = React.useState({
-    product: "",
+    name: "",
     quantity: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem('product', form.product)
-    localStorage.setItem('quantity', form.quantity)
-    console.log(localStorage.getItem('product'))
-    console.log(localStorage.getItem('quantity'))
-  }
-
+    form.id = stuff.length + 1;
+    stuff.push(form);
+    localStorage.setItem("stuff", JSON.stringify(stuff));
+    console.log(JSON.parse(localStorage.getItem("stuff")));
+  };
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-
-
 
   return (
     <DIV>
@@ -99,11 +99,11 @@ function Deposit() {
             <option value="Livestock">Livestock</option>
           </select>
           <div className="productdepo">
-            <label htmlFor="product">Product</label>
+            <label htmlFor="name">Product</label>
             <input
               type="text"
-              name="product"
-              value={form.product}
+              name="name"
+              value={form.name}
               onChange={(e) => handleChange(e)}
             />
             <label htmlFor="">Quantity</label>
@@ -115,7 +115,9 @@ function Deposit() {
               value={form.amount}
               onChange={(e) => handleChange(e)}
             />
-            <button className="myButton" onClick={handleSubmit}>Troc</button>
+            <button className="myButton" onClick={handleSubmit}>
+              Troc
+            </button>
           </div>
         </depo>
       </div>
