@@ -4,6 +4,9 @@ import SwapItem from "./SwapItem";
 import styled from "styled-components";
 
 const SWAPLIST = styled.div`
+  padding-top: 10rem;
+  padding-bottom: 5rem;
+
   ul {
     display: flex;
     flex-direction: column;
@@ -11,13 +14,17 @@ const SWAPLIST = styled.div`
   }
 
   li {
+    display: flex;
     list-style: none;
+    justify-content: center;
   }
 
   .category {
     display: flex;
+    justify-content: center;
     flex-warp: warp;
   }
+
   button {
     display: flex;
     flex-direction: row;
