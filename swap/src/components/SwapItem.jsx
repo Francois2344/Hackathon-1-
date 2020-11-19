@@ -4,18 +4,18 @@ import PropTypes from 'prop-types';
 
 const DIV = styled.div`
 
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  margin: 2rem;
-  padding: 1em;
-  width: auto;
-  height: auto;
-  font-family: Roboto, sans-serif;
-  background-color: rgba(203, 67, 53);
-  border-radius: 10px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
-  font-size: 0.75em;
+display: flex;
+flex-direction: column;
+text-align: left;
+margin: 2rem;
+padding: 1em;
+width: auto;
+height: auto;
+font-family: Roboto, sans-serif;
+background-color: rgba(203, 67, 53);
+border-radius: 10px;
+box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+font-size: 0.75em;
 
 .category {
   color: black;
@@ -37,6 +37,21 @@ h4 {
 .swapInformation {
   flex-wrap: wrap;
   margin: auto;
+}
+
+.addToCart {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  font-size: 1rem;
+}
+
+.form-input {
+  width: 2.5rem;
+  height: 2rem;
+  background-size : 1rem;
 }
 
 button {
@@ -95,7 +110,7 @@ class SwapItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isAdded: false,
+      isAdded: true,
     };
   }
   addToCart() {
@@ -122,8 +137,16 @@ class SwapItem extends Component {
             </div>
           </div>
           <div className="addToCart">
+          <input
+                type="number"
+                className="form-input"
+                name="Total"
+                id="total"
+                max= {quantity}
+                min="0"
+              />
           <button onClick={(e) => {this.addToCart()}}>
-            {this.state.isAdded ? "Add" : "Remove"}
+            {this.state.isAdded ? "Swap" : "Remove"}
           </button>
           </div>
         </DIV>
