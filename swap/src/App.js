@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import axios from "axios";
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import HomePage from './components/HomePage';
@@ -6,10 +8,19 @@ import Deposit from './components/Deposit';
 import Account from './components/Account';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import {TinyButton as ScrollUpButton} from "react-scroll-up-button";
-import { nominalTypeHack } from 'prop-types';
+import {TinyButton as ScrollUpButton} from 'react-scroll-up-button';
+
 
 function App() {
+  useEffect(() => {
+    axios
+      .get(
+        "https://raw.githubusercontent.com/Francois2344/hackathon1/main/swap/db.json"
+      )
+      .then((response) => {
+        localStorage.setItem("stuff", JSON.stringify(response.data));
+      });
+  }, []);
   return (
     <Router>
       
@@ -50,7 +61,6 @@ function App() {
       <Footer />
     </div>
     </Router>
-    
   );
 }
 

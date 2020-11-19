@@ -28,6 +28,24 @@ img{
 }
 `;
 
+const TotalItem = styled.div`
+height: 20px;
+width: 20px;
+border-radius: 50%;
+background-color: black;
+position: fixed;
+right:0;
+transform:translateY(-1.3rem) translateX(-1.7rem);
+display:flex;
+justify-content:center;
+p{
+    color:white;
+    position: fixed;
+    right:0;
+    font-size:0.8rem;
+    transform:translateY(-0.65rem) translateX(-0.4rem);
+}
+`;
 
 
 const BasketWrap = styled.div`
@@ -53,9 +71,10 @@ render() {
             <Link to='/Account'><FooterAccount>
                 <img src= {Knight} alt='profile logo'/>
             </FooterAccount></Link>
-            
+            <TotalItem>
+                <p>1</p>
+            </TotalItem>
             <BasketWrap>
-                
                 <img src= {Pannier} alt='pannier' />
             </BasketWrap>
         </FooterWrap>

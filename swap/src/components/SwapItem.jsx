@@ -12,7 +12,7 @@ padding: 1em;
 width: auto;
 height: auto;
 font-family: Roboto, sans-serif;
-background-color: rgba(203, 67, 53);
+background-color: rgba(203, 67, 53, 0.7);
 border-radius: 10px;
 box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
 font-size: 0.75em;
@@ -55,10 +55,12 @@ input {
 }
 
 button {
-  width: auto;
+  width: 50px;
   text-align: center;
   margin: 1rem;
   border-radius: 15px;
+  outline: none;
+  border: none;
 }
 
 .swapDetail {
@@ -76,9 +78,9 @@ button {
   align-items: center;
   text-align: left;
   padding: 1rem;
-  max-width: 30rem;
+  max-width: 50rem;
   height: auto;
-  background-color: rgba(203, 67, 53);
+  background-color: rgba(203, 67, 53, 0.4);
   border-radius: 5px;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
   font-size: 0.75em;
@@ -124,7 +126,7 @@ class SwapItem extends Component {
   }
 
   render() {
-    const { name, image, category, location, quantity, id, increment, decrement } = this.props;
+    const { name, image, category, location, quantity, value, id, increment, decrement } = this.props;
     const {totalItem}= this.state;
     return (
       <div>
@@ -142,7 +144,10 @@ class SwapItem extends Component {
               <h4 className="quantity">Quantity : {quantity}</h4>
             </div>
             <div className="swapLocation">
-              <h4 className="where">Where : {location}</h4>
+              <h4 className="location">Value : {value}</h4>
+            </div>
+            <div className="swapLocation">
+              <h4 className="location">Where : {location}</h4>
             </div>
           </div>
           <div className="addToCart">
