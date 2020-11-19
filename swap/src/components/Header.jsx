@@ -1,5 +1,16 @@
 import React, {Component} from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import {Link} from 'react-router-dom';
+
+const StyledLink = styled(Link)`
+&:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+`;
 
 const HeaderWrap = styled.div`
 height: 6rem;
@@ -22,9 +33,9 @@ p{
 class Header extends Component {
     render() {
         return (
-            <HeaderWrap>
+            <StyledLink to='/'><HeaderWrap>
                 <p>SWAPPY SWAPPO</p>
-            </HeaderWrap>
+            </HeaderWrap></StyledLink>
         )
 }
 }
