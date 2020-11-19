@@ -126,7 +126,7 @@ class SwapItem extends Component {
           <img className="swapPhoto" src={image} alt={name} />
           <div className="swapInformation">
             <div className="sawpCategory">
-              <h3 className="category"> Category : {category !== undefined ? category : 'Divers'}</h3>
+              <h3 className="category-title"> Category : {category !== undefined ? category : 'Divers'}</h3>
               <h3 className="name">{name}</h3>
             </div>
             <div className="swapLocation">
