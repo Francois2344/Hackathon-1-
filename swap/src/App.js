@@ -7,6 +7,7 @@ import Account from './components/Account';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import {TinyButton as ScrollUpButton} from "react-scroll-up-button";
+import { nominalTypeHack } from 'prop-types';
 
 function App() {
   return (
@@ -23,11 +24,20 @@ function App() {
         <ScrollUpButton 
         style={{
           backgroundColor: 'none',
+<<<<<<< HEAD
           borderRadius: '50%',
           width: '40px',
           height: '40px',
           transform: 'translateY(-3rem) translateX(1.5rem)',
           outline: 'none'
+=======
+          
+          width: '40px',
+          height: '40px',
+          outline: 'none',
+          transform: 'translateY(-3rem) translateX(1.5rem)'
+
+>>>>>>> 492ac9bcb0b4b8d92014d9500a40dc90649135f1
         }}/>
       </Route>
       <Route path='/Deposit'>
