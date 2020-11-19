@@ -7,16 +7,12 @@ class SwapList extends React.Component {
     super(props);
     this.state = {
       swaps: [],
-      status: 'drink',
+      status: 'food',
     };
-    this.drink = this.drink.bind(this);
-    this.meat = this.meat.bind(this);
-    this.fish = this.fish.bind(this);
-    this.cereals = this.cereals.bind(this);
-    this.fruits = this.fruits.bind(this);
-    this.vegetables = this.vegetables.bind(this);
-    this.tools = this.tools.bind(this);
-    this.wood = this.wood.bind(this);
+    this.food = this.food.bind(this);
+    this.clothes = this.clothes.bind(this);
+    this.tools= this.tools.bind(this);
+    this.livestock = this.livestock.bind(this);
     this.showAll = this.showAll.bind(this);
   }
   componentDidMount() {
@@ -33,39 +29,15 @@ class SwapList extends React.Component {
     });
   }
 
-  drink() {
+  food() {
     this.setState({
-      status: 'drink',
+      status: 'food',
     });
   }
 
-  meat() {
+  clothes() {
     this.setState({
-      status: 'meat',
-    });
-  }
-
-  fish() {
-    this.setState({
-      status: 'fish',
-    });
-  }
-
-  cereals() {
-    this.setState({
-      status: 'cereals',
-    });
-  }
-
-  fruits() {
-    this.setState({
-      status: 'fruits',
-    });
-  }
-
-  vegetables() {
-    this.setState({
-      status: 'vegetables',
+      status: 'clothes',
     });
   }
 
@@ -75,9 +47,9 @@ class SwapList extends React.Component {
     });
   }
 
-  wood() {
+  livestock() {
     this.setState({
-      status: 'wood',
+      status: 'livestock',
     });
   }
 
@@ -92,29 +64,17 @@ class SwapList extends React.Component {
     return (
       <div className="SwapList">
          <div className="category">
-            <button type="button" onClick={this.drink}>
-              Drink
+            <button type="button" onClick={this.food}>
+              Food
             </button>
-            <button type="button" onClick={this.meat}>
-              Meat
-            </button>
-            <button type="button" onClick={this.fish}>
-              Fish
-            </button>
-            <button type="button" onClick={this.cereals}>
-              Cereals
-            </button>
-            <button type="button" onClick={this.fruits}>
-              Fruits
-            </button>
-            <button type="button" onClick={this.vegetables}>
-              Vegetables
+            <button type="button" onClick={this.clothes}>
+              Clothes
             </button>
             <button type="button" onClick={this.tools}>
               Tools
             </button>
-            <button type="button" onClick={this.wood}>
-              Wood
+            <button type="button" onClick={this.livestock}>
+              Livestock
             </button>
             <button type="button" onClick={this.showAll}>
               All
@@ -126,29 +86,17 @@ class SwapList extends React.Component {
               if (status === 'all') {
                 return true;
               }
-              if (status === 'drink') {
-                return event.category === 'Drink';
+              if (status === 'food') {
+                return event.category === 'Food';
               }
-              if (status === 'meat') {
-                return event.category === 'Meat';
-              }
-              if (status === 'fish') {
-                return event.category === 'Fish';
-              }
-              if (status === 'cereals') {
-                return event.category === 'Cereals';
-              }
-              if (status === 'fruits') {
-                return event.category === 'Fruits';
-              }
-              if (status === 'vegetables') {
-                return event.category === 'Vegetables';
+              if (status === 'clothes') {
+                return event.category === 'Clothes';
               }
               if (status === 'tools') {
                 return event.category === 'Tools';
               }
-              if (status === 'wood') {
-                return event.category === 'Wood';
+              if (status === 'livestock') {
+                return event.category === 'Livestock';
               }
               return event.category === '';
             }).map((event) => {
