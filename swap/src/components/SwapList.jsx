@@ -23,7 +23,7 @@ const SWAPLIST = styled.div`
   .category {
     display: flex;
     justify-content: center;
-    flex-warp: warp;
+    flex-wrap: wrap;
   }
 
   button {
