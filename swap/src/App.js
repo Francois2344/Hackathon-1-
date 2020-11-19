@@ -10,6 +10,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import {TinyButton as ScrollUpButton} from 'react-scroll-up-button';
 
+
 function App() {
   useEffect(() => {
     axios
@@ -34,10 +35,12 @@ function App() {
         <ScrollUpButton 
         style={{
           backgroundColor: 'none',
-          borderRadius: '50%',
-          width: '50px',
-          height: '50px',
-          transform: 'translateY(-3rem)'
+          
+          width: '40px',
+          height: '40px',
+          outline: 'none',
+          transform: 'translateY(-3rem) translateX(1.5rem)'
+
         }}/>
       </Route>
       <Route path='/Deposit'>

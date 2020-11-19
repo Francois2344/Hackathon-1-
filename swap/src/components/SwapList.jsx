@@ -2,7 +2,6 @@ import React from "react";
 import SwapItem from "./SwapItem";
 import styled from "styled-components";
 
-
 const SWAPLIST = styled.div`
   padding-top: 10rem;
   padding-bottom: 5rem;
@@ -22,7 +21,7 @@ const SWAPLIST = styled.div`
   .category {
     display: flex;
     justify-content: center;
-    flex-warp: warp;
+    flex-wrap: wrap;
   }
 
   button {
@@ -44,12 +43,15 @@ class SwapList extends React.Component {
     this.state = {
       swaps: [],
       status: "all",
+      totalList: 0,
     };
     this.food = this.food.bind(this);
     this.clothes = this.clothes.bind(this);
     this.tools = this.tools.bind(this);
     this.livestock = this.livestock.bind(this);
     this.showAll = this.showAll.bind(this);
+    this.increment = this.increment.bind(this);
+    this.decrement = this.decrement.bind(this);
   }
   componentDidMount() {
     this.fetchSwaps();
@@ -89,6 +91,20 @@ class SwapList extends React.Component {
     this.setState({
       status: "all",
     });
+  }
+
+  increment() {
+    
+      this.setState({
+        totalList: this.state.totalList + 1,
+      });
+  }
+
+  decrement() {
+    if (this.state.totalItem > 0)
+      this.setState({
+        totalItem: this.props.totalItem - 1,
+      });
   }
 
   render() {
@@ -136,7 +152,9 @@ class SwapList extends React.Component {
             .map((event) => {
               return (
                 <li key={event.id}>
-                  <SwapItem {...event} />
+                  <SwapItem
+                    {...event} totalList={this.state.totalList} increment={this.increment} decrement={this.decrement}
+                  />
                 </li>
               );
             })}
