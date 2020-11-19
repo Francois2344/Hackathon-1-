@@ -34,8 +34,7 @@ const SWAPLIST = styled.div`
     justify-content: center;
     align-items: center;
     font-size: 0.8rem;
-    outline: none;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+    outline-style: none;
     border-radius: 10px;
     margin: 0.5rem;
     width: 5rem;
