@@ -7,7 +7,7 @@ class SwapList extends React.Component {
     super(props);
     this.state = {
       swaps: [],
-      status: 'food',
+      status: 'all',
     };
     this.food = this.food.bind(this);
     this.clothes = this.clothes.bind(this);
@@ -21,7 +21,7 @@ class SwapList extends React.Component {
 
   fetchSwaps() {
     axios
-    .get("")
+    .get(`https://raw.githubusercontent.com/Francois2344/hackathon1/main/swap/db.json`)
     .then((response) => {
       this.setState({
         swaps: response.data,
@@ -55,7 +55,7 @@ class SwapList extends React.Component {
 
   showAll() {
     this.setState({
-      status: 'All',
+      status: 'all',
     });
   }
 
@@ -87,22 +87,21 @@ class SwapList extends React.Component {
                 return true;
               }
               if (status === 'food') {
-                return event.category === 'Food';
+                return event.category === 'food';
               }
               if (status === 'clothes') {
-                return event.category === 'Clothes';
+                return event.category === 'clothes';
               }
               if (status === 'tools') {
-                return event.category === 'Tools';
+                return event.category === 'tools';
               }
               if (status === 'livestock') {
-                return event.category === 'Livestock';
+                return event.category === 'livestock';
               }
               return event.category === '';
             }).map((event) => {
               return (
                 <li key={event.id}>
-                  {/* eslint-disable-next-line react/jsx-props-no-spreading */}
                   <SwapItem {...event} />
                 </li>
               );
