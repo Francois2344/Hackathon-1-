@@ -24,9 +24,10 @@ function App() {
         style={{
           backgroundColor: 'none',
           borderRadius: '50%',
-          width: '50px',
-          height: '50px',
-          transform: 'translateY(-3rem)'
+          width: '40px',
+          height: '40px',
+          transform: 'translateY(-3rem) translateX(1.5rem)',
+          outline: 'none'
         }}/>
       </Route>
       <Route path='/Deposit'>
