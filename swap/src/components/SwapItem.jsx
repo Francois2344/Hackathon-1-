@@ -114,7 +114,7 @@ class SwapItem extends Component {
       isAdded: true,
       totalItem: 0,
     };
-    this.increment=this.increment.bind(this);
+    
   }
 
   addToCart() {
