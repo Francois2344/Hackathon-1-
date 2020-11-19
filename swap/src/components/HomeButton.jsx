@@ -4,6 +4,16 @@ import {Link} from 'react-router-dom';
 import Char from './pictos/charette.png';
 import View from './pictos/view.png'
 
+const StyledLink = styled(Link)`
+&:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+`;
+
 const HomeButtonWrap = styled.div`
   display: flex;
   flex-direction: column;
@@ -48,7 +58,6 @@ const DepositButton = styled.div`
   transition: ease-in-out 0.2s;
   display:flex;
   align-items: center;
-  
   :active {
     box-shadow: none;
   }
@@ -58,7 +67,6 @@ const DepositButton = styled.div`
   }
   p{
       font-size: 1.5rem;
-      text-decoration: none;
   }
 `;
 
@@ -66,18 +74,18 @@ class HomeButton extends Component {
   render() {
     return (
       <HomeButtonWrap>
-        <Link to='/Deposit'>
+        <StyledLink to='/Deposit'>
             <DepositButton>
                 <img src={Char} alt='Charette' />
                 <p>Deposit</p>
             </DepositButton>
-        </Link>
-        <Link to='/SwapList'>
+        </StyledLink>
+        <StyledLink to='/SwapList'>
             <SearchButton>
                 <img src={View} alt='Charette' />
                 <p>Search ?</p>
             </SearchButton>
-        </Link>
+        </StyledLink>
       </HomeButtonWrap>
     );
   }
