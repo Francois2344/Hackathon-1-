@@ -6,7 +6,9 @@ const DIV = styled.div`
       display: flex;
       justify-content: center;
       flex-direction: column;
-      margin: auto;
+      align-items: center;
+      margin-top: 40%;
+      
  }
  .yourProduct {
      padding: 30px;
@@ -15,6 +17,7 @@ const DIV = styled.div`
  .productdepo {
      display:flex;
      justify-content: column;
+     align-items: center;
 
  }
 
@@ -23,22 +26,59 @@ const DIV = styled.div`
      text-align: center;
      align-self: center;
  }
+ input {
+    display: flex;
+    height: 30%;
+    width: 100%;
+    border: 2px solid #cb4435
+ }
+ .myButton {
+	box-shadow:inset 0px 1px 0px -37px #cf866c;
+	background-color:#cb4435;
+	border-radius:3px;
+	border:1px solid #942911;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+    text-shadow:0px 1px 0px #854629;
+    margin-top: 20px;
+}
+.myButton:hover {
+	background-color:#bc3315;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
 
 `;
 
 function Deposit() {
   const [form, setForm] = React.useState({
     product: "",
-    amount: "",
+    quantity: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  };
+    localStorage.setItem('product', form.product)
+    localStorage.setItem('quantity', form.quantity)
+    console.log(localStorage.getItem('product'))
+    console.log(localStorage.getItem('quantity'))
+  }
+
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
+
+
 
   return (
     <DIV>
@@ -66,21 +106,20 @@ function Deposit() {
               value={form.product}
               onChange={(e) => handleChange(e)}
             />
-            <label htmlFor="">Amount</label>
+            <label htmlFor="">Quantity</label>
             <input
               type="number"
-              name="amount"
+              name="quantity"
               min="1"
               max="300"
               value={form.amount}
               onChange={(e) => handleChange(e)}
             />
-            <button onClick={handleSubmit}>Troc</button>
+            <button className="myButton" onClick={handleSubmit}>Troc</button>
           </div>
         </depo>
       </div>
     </DIV>
   );
 }
-
 export default Deposit;
