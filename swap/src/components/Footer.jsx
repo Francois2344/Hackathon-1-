@@ -29,6 +29,7 @@ img{
 `;
 
 
+
 const BasketWrap = styled.div`
 height: 40px;
 width: 40px;
@@ -50,11 +51,12 @@ render() {
     return (
         <FooterWrap>
             <Link to='/Account'><FooterAccount>
-            <img src= {Knight} alt='profile logo'/>
+                <img src= {Knight} alt='profile logo'/>
             </FooterAccount></Link>
             
             <BasketWrap>
-            <img src= {Pannier} alt='pannier' />
+                
+                <img src= {Pannier} alt='pannier' />
             </BasketWrap>
         </FooterWrap>
     )

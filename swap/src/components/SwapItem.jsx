@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const DIV = styled.div`
 
@@ -68,6 +68,7 @@ button {
   margin-top: 0.5rem;
 }
 
+
 @media screen and (min-width: 768px) {
   display: flex;
   flex-direction: row;
@@ -111,13 +112,28 @@ class SwapItem extends Component {
     super(props);
     this.state = {
       isAdded: true,
+      totalItem: null,
     };
   }
+
   addToCart() {
     this.setState({
       isAdded: !this.state.isAdded,
     });
   }
+
+  increment() {
+    this.setState({
+      totalItem: this.state.totalItem + 1,
+    });
+  }
+
+  decrement() {
+    this.setState({
+      totalItem: this.state.totalItem - 1,
+    });
+  }
+
   render() {
     const { name, image, category, location, quantity, id } = this.props;
     return (
@@ -126,7 +142,10 @@ class SwapItem extends Component {
           <img className="swapPhoto" src={image} alt={name} />
           <div className="swapInformation">
             <div className="sawpCategory">
-              <h3 className="category-title"> Category : {category !== undefined ? category : 'Divers'}</h3>
+              <h3 className="category-title">
+                {" "}
+                Category : {category !== undefined ? category : "Divers"}
+              </h3>
               <h3 className="name">{name}</h3>
             </div>
             <div className="swapLocation">
@@ -137,17 +156,37 @@ class SwapItem extends Component {
             </div>
           </div>
           <div className="addToCart">
-          <input
-                type="number"
-                className="form-input"
-                name="Total"
-                id="total"
-                max= {quantity}
-                min="0"
-              />
-          <button onClick={(e) => {this.addToCart()}}>
-            {this.state.isAdded ? "Swap" : "Remove"}
-          </button>
+            <button
+              onClick={(e) => {
+                this.increment();
+              }}
+            >
+              {" "}
+              +{" "}
+            </button>
+            <input
+              type="number"
+              className="form-input"
+              name="Total"
+              id="total"
+              max={quantity}
+              min="0"
+            />
+            <button
+              onClick={(e) => {
+                this.decrement();
+              }}
+            >
+              {" "}
+              -{" "}
+            </button>
+            <button
+              onClick={(e) => {
+                this.addToCart();
+              }}
+            >
+              {this.state.isAdded ? "Swap" : "Remove"}
+            </button>
           </div>
         </DIV>
       </div>
@@ -158,11 +197,10 @@ class SwapItem extends Component {
 SwapItem.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired, 
+  image: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  quantity: PropTypes.number.isRequired
-
+  quantity: PropTypes.number.isRequired,
 };
 
 export default SwapItem;
