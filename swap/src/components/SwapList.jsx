@@ -1,17 +1,46 @@
 import React from "react";
 import axios from "axios";
 import SwapItem from "./SwapItem";
+import styled from "styled-components";
+
+const SWAPLIST = styled.div`
+  ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  .category {
+    display: flex;
+    flex-warp: warp;
+  }
+  button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    margin: 0.5rem;
+    width: 5rem;
+  }
+`;
 
 class SwapList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       swaps: [],
-      status: 'all',
+      status: "all",
     };
     this.food = this.food.bind(this);
     this.clothes = this.clothes.bind(this);
-    this.tools= this.tools.bind(this);
+    this.tools = this.tools.bind(this);
     this.livestock = this.livestock.bind(this);
     this.showAll = this.showAll.bind(this);
   }
@@ -21,85 +50,89 @@ class SwapList extends React.Component {
 
   fetchSwaps() {
     axios
-    .get(`https://raw.githubusercontent.com/Francois2344/hackathon1/main/swap/db.json`)
-    .then((response) => {
-      this.setState({
-        swaps: response.data,
+      .get(
+        `https://raw.githubusercontent.com/Francois2344/hackathon1/main/swap/db.json`
+      )
+      .then((response) => {
+        this.setState({
+          swaps: response.data,
+        });
       });
-    });
   }
 
   food() {
     this.setState({
-      status: 'food',
+      status: "food",
     });
   }
 
   clothes() {
     this.setState({
-      status: 'clothes',
+      status: "clothes",
     });
   }
 
   tools() {
     this.setState({
-      status: 'tools',
+      status: "tools",
     });
   }
 
   livestock() {
     this.setState({
-      status: 'livestock',
+      status: "livestock",
     });
   }
 
   showAll() {
     this.setState({
-      status: 'all',
+      status: "all",
     });
   }
 
   render() {
     const { swaps, status } = this.state;
     return (
-      <div className="SwapList">
-         <div className="category">
-            <button type="button" onClick={this.food}>
-              Food
-            </button>
-            <button type="button" onClick={this.clothes}>
-              Clothes
-            </button>
-            <button type="button" onClick={this.tools}>
-              Tools
-            </button>
-            <button type="button" onClick={this.livestock}>
-              Livestock
-            </button>
-            <button type="button" onClick={this.showAll}>
-              All
-            </button>
-          </div>
+      <SWAPLIST className="SwapList">
+        <div className="category">
+          <button type="button" onClick={this.food}>
+            Food
+          </button>
+          <button type="button" onClick={this.clothes}>
+            Clothes
+          </button>
+          <button type="button" onClick={this.tools}>
+            Tools
+          </button>
+          <button type="button" onClick={this.livestock}>
+            Livestock
+          </button>
+          <button type="button" onClick={this.showAll}>
+            All
+          </button>
+        </div>
         <ul>
-        {swaps.filter((event) => {
+          {swaps
+            .filter((event) => {
               console.log(status);
-              if (status === 'all') {
+              if (status === "all") {
                 return true;
               }
-              if (status === 'food') {
-                return event.category === 'food';
+              if (status === "food") {
+                return event.category === "food";
               }
-              if (status === 'clothes') {
-                return event.category === 'clothes';
+              if (status === "clothes") {
+                return event.category === "clothes";
               }
-              if (status === 'tools') {
-                return event.category === 'tools';
+              if (status === "tools") {
+                return event.category === "tools";
               }
-              if (status === 'livestock') {
-                return event.category === 'livestock';
+              if (status === "livestock") {
+                return event.category === "livestock";
               }
-              return event.category === '';
-            }).map((event) => {
+              return event.category === "";
+            })
+            .map((event) => {
               return (
                 <li key={event.id}>
                   <SwapItem {...event} />
@@ -107,7 +140,7 @@ class SwapList extends React.Component {
               );
             })}
         </ul>
-      </div>
+      </SWAPLIST>
     );
   }
 }
