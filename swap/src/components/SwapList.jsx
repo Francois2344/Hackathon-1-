@@ -24,7 +24,7 @@ const SWAPLIST = styled.div`
     flex-wrap: wrap;
   }
 
-  button {
+  .buttonList {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -38,6 +38,13 @@ const SWAPLIST = styled.div`
     border:none;
     background-color:rgb(203, 57, 53);
     color:white;
+    :focus{
+      color:rgb(203, 57, 53);
+      background-color:white;
+      border:1px;
+      border:solid;
+      border-color:rgb(203, 57, 53);
+    }
   }
 `;
 
@@ -104,19 +111,19 @@ class SwapList extends React.Component {
     return (
       <SWAPLIST className="SwapList">
         <div className="category">
-          <button type="button" onClick={this.food}>
+          <button className='buttonList' type="button" onClick={this.food}>
             Food
           </button>
-          <button type="button" onClick={this.clothes}>
+          <button className='buttonList' type="button" onClick={this.clothes}>
             Clothes
           </button>
-          <button type="button" onClick={this.tools}>
+          <button className='buttonList' type="button" onClick={this.tools}>
             Tools
           </button>
-          <button type="button" onClick={this.livestock}>
+          <button className='buttonList' type="button" onClick={this.livestock}>
             Livestock
           </button>
-          <button type="button" onClick={this.showAll}>
+          <button className='buttonList' type="button" onClick={this.showAll}>
             All
           </button>
         </div>
