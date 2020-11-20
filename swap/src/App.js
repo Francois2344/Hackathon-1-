@@ -16,9 +16,15 @@ class App extends React.Component {
     super(props);
     this.state = {
       totalList: 0,
+      totalListValue: 0,
+      cartItems:[],
     };
     this.increment = this.increment.bind(this);
     this.decrement = this.decrement.bind(this);
+    this.addItem=this.addItem.bind(this);
+    this.removeItem=this.removeItem.bind(this);
+    this.changeItemQty=this.changeItemQty.bind(this);
+
   }
 
   componentDidMount() {
@@ -35,20 +41,47 @@ class App extends React.Component {
       });
   }
 
+  addItem(item){
+    this.setState({
+      cartItems:[...this.state.cartItems, item]
+    })
+  }
+
+  changeItemQty( itemId, qty){
+    this.setState({
+      cartItems:[...this.state.cartItems.map((el)=>{
+        if(el.id===itemId){
+          el.quantity=qty;
+        } return el;
+      })]
+    })
+  }
+
+
+  removeItem(item){
+    this.setState({
+      cartItems:[...this.state.cartItems.filter((el)=> el.id!==item.id)]
+    })
+  }
+
   increment() {
     
     this.setState({
       totalList: this.state.totalList + 1,
+      totalListValue: (this.state.totalList + 1) * this.props.value ,
     });
+    
 }
 
 decrement() {
     this.setState({
       totalList: this.state.totalList - 1,
     });
+    
 }
 
   render() {
+    console.log(this.state.cartItems);
     return (
       <Router>
         <div className="App">
@@ -58,7 +91,7 @@ decrement() {
               <HomePage />
             </Route>
             <Route path="/SwapList">
-              <SwapList totalList={this.state.totalList} increment={this.increment} decrement={this.decrement}/>
+              <SwapList totalList={this.state.totalList} increment={this.increment} decrement={this.decrement} addItem={this.addItem} removeItem={this.removeItem} changeItemQty={this.changeItemQty}/>
               <ScrollUpButton
                 style={{
                   backgroundColor: "none",
@@ -76,7 +109,10 @@ decrement() {
               <Account />
             </Route>
           </Switch>
-          <Footer totalList={this.state.totalList}/>
+          <Footer 
+          totalList={this.state.totalList}
+          totalListValue={this.state.totalListValue}
+          increment={this.increment} decrement={this.decrement}/>
         </div>
       </Router>
     );
