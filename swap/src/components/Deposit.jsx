@@ -241,7 +241,7 @@ function Deposit() {
             /></label>
           </div>
           <button className="myButton" onClick={handleSubmit}>
-              Troc
+              Swap
             </button>
         </depo>
       </div>
