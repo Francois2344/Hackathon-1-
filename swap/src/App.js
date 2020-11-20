@@ -24,10 +24,11 @@ class App extends React.Component {
     this.addItem = this.addItem.bind(this);
     this.removeItem = this.removeItem.bind(this);
     this.changeItemQty = this.changeItemQty.bind(this);
-    this.reset = this.reset.bind(this);
+  
   }
 
   componentDidMount() {
+    localStorage.clear()
     this.getApi();
   }
 
@@ -79,14 +80,7 @@ class App extends React.Component {
     });
   }
 
-  reset() {
-    this.setState({
-      totalList: 0,
-      cartItems: [],
-    });
-    alert('order completed')
-    
-  }
+  
 
   render() {
     console.log(this.state.cartItems);
@@ -106,7 +100,7 @@ class App extends React.Component {
                 addItem={this.addItem}
                 removeItem={this.removeItem}
                 changeItemQty={this.changeItemQty}
-                reset={this.reset}
+                
               />
               <ScrollUpButton
                 style={{
