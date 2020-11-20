@@ -3,7 +3,7 @@ import SwapItem from "./SwapItem";
 import styled from "styled-components";
 
 const SWAPLIST = styled.div`
-  padding-top: 10rem;
+  padding-top: 7.5rem;
   padding-bottom: 5rem;
 
   ul {
