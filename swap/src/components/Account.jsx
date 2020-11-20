@@ -5,6 +5,7 @@ import knight from "./pictos/Knight.svg"
 const Main = styled.div`
   background-color: rgb(203, 57, 53);
   margin: 8rem 1rem 5rem 1rem;
+  min-height: 100%;
   form {
     display: flex;
     flex-direction: column;
