@@ -101,6 +101,7 @@ function Deposit() {
     form.id = JSON.stringify(stuff.length + 1);
     stuff.push(form);
     localStorage.setItem("stuff", JSON.stringify(stuff));
+    alert("Ad sent!")
   };
 
   const handleChange = (e) => {
