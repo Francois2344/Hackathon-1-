@@ -143,7 +143,6 @@ class SwapItem extends Component {
     });
   }
 
-
   render() {
     const {
       name,
@@ -173,7 +172,7 @@ class SwapItem extends Component {
               <h3 className="name">{name}</h3>
             </div>
             <div className="swapLocation">
-              <h4 className="location">Quantity : {quantity}</h4>
+              <h4 className="quantity">Quantity : {quantity}</h4>
             </div>
             <div className="swapLocation">
               <h4 className="location">Value : {value}</h4>
