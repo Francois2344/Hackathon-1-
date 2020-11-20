@@ -91,27 +91,16 @@ function Deposit() {
     name: "",
     location: "",
     quantity: "",
-    image: null
+    image: null,
+    value: ""
   });
-  SearchValue()
-  console.log((values.find(e => e.object === form.name)).value)
-  let quailEggsValue = "" 
-  //console.log(quailEggsValue)
-
-  
-
-function SearchValue() {
-  if(form.name === "QUAIL EGGS") {
-    return quailEggsValue = "1"
-  }
-}
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    form.value = values.find(e => e.object === form.name).value;
     form.id = JSON.stringify(stuff.length + 1);
     stuff.push(form);
     localStorage.setItem("stuff", JSON.stringify(stuff));
-    console.log(JSON.parse(localStorage.getItem("stuff")));
   };
 
   const handleChange = (e) => {
@@ -125,7 +114,7 @@ function SearchValue() {
           <label htmlFor="your-deposit">Your Deposit</label>
           <img
             className="yourProduct"
-            src="https://via.placeholder.com/300x200"
+            src={form.image}
             alt=""
           />
           <label htmlFor="location">Your image
