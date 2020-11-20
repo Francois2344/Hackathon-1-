@@ -17,14 +17,14 @@ class App extends React.Component {
     this.state = {
       totalList: 0,
       totalListValue: 0,
-      cartItems:[],
+      cartItems: [],
     };
     this.increment = this.increment.bind(this);
     this.decrement = this.decrement.bind(this);
-    this.addItem=this.addItem.bind(this);
-    this.removeItem=this.removeItem.bind(this);
-    this.changeItemQty=this.changeItemQty.bind(this);
-
+    this.addItem = this.addItem.bind(this);
+    this.removeItem = this.removeItem.bind(this);
+    this.changeItemQty = this.changeItemQty.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   componentDidMount() {
@@ -41,44 +41,52 @@ class App extends React.Component {
       });
   }
 
-  addItem(item){
+  addItem(item) {
     this.setState({
-      cartItems:[...this.state.cartItems, item]
-    })
+      cartItems: [...this.state.cartItems, item],
+    });
   }
 
-  changeItemQty( itemId, qty){
+  changeItemQty(itemId, qty) {
     this.setState({
-      cartItems:[...this.state.cartItems.map((el)=>{
-        if(el.id===itemId){
-          el.quantity=qty;
-        } return el;
-      })]
-    })
+      cartItems: [
+        ...this.state.cartItems.map((el) => {
+          if (el.id === itemId) {
+            el.quantity = qty;
+          }
+          return el;
+        }),
+      ],
+    });
   }
 
-
-  removeItem(item){
+  removeItem(item) {
     this.setState({
-      cartItems:[...this.state.cartItems.filter((el)=> el.id!==item.id)]
-    })
+      cartItems: [...this.state.cartItems.filter((el) => el.id !== item.id)],
+    });
   }
 
   increment() {
-    
     this.setState({
       totalList: this.state.totalList + 1,
-      totalListValue: (this.state.totalList + 1) * this.props.value ,
+      totalListValue: (this.state.totalList + 1) * this.props.value,
     });
-    
-}
+  }
 
-decrement() {
+  decrement() {
     this.setState({
       totalList: this.state.totalList - 1,
     });
+  }
+
+  reset() {
+    this.setState({
+      totalList: 0,
+      cartItems: [],
+    });
+    alert('order completed')
     
-}
+  }
 
   render() {
     console.log(this.state.cartItems);
@@ -91,7 +99,15 @@ decrement() {
               <HomePage />
             </Route>
             <Route path="/SwapList">
-              <SwapList totalList={this.state.totalList} increment={this.increment} decrement={this.decrement} addItem={this.addItem} removeItem={this.removeItem} changeItemQty={this.changeItemQty}/>
+              <SwapList
+                totalList={this.state.totalList}
+                increment={this.increment}
+                decrement={this.decrement}
+                addItem={this.addItem}
+                removeItem={this.removeItem}
+                changeItemQty={this.changeItemQty}
+                reset={this.reset}
+              />
               <ScrollUpButton
                 style={{
                   backgroundColor: "none",
@@ -109,10 +125,14 @@ decrement() {
               <Account />
             </Route>
           </Switch>
-          <Footer 
-          totalList={this.state.totalList}
-          totalListValue={this.state.totalListValue}
-          increment={this.increment} decrement={this.decrement}/>
+          <Footer
+            totalList={this.state.totalList}
+            totalListValue={this.state.totalListValue}
+            increment={this.increment}
+            decrement={this.decrement}
+            cartItems={this.state.cartItems}
+            reset={this.reset}
+          />
         </div>
       </Router>
     );
