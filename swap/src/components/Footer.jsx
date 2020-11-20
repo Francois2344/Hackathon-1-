@@ -127,11 +127,14 @@ class Footer extends Component {
     });
   }
 
+  reset() {
+    alert("order completed")
+  }
   
   render() {
-    const { totalList, totalListValue, cartItems } = this.props;
+    const { totalList, totalListValue, cartItems,} = this.props;
     const { hidden } = this.state;
-    console.log(this.reset)
+    
     return (
       <FooterWrap>
         <Link to="/Account">
