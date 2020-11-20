@@ -3,7 +3,7 @@ import SwapItem from "./SwapItem";
 import styled from "styled-components";
 
 const SWAPLIST = styled.div`
-  padding-top: 10rem;
+  padding-top: 7.5rem;
   padding-bottom: 5rem;
 
   ul {
@@ -30,10 +30,14 @@ const SWAPLIST = styled.div`
     justify-content: center;
     align-items: center;
     font-size: 0.8rem;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+    outline-style: none;
     border-radius: 10px;
     margin: 0.5rem;
-    width: 5rem;
+    width: 4rem;
+    outline:none;
+    border:none;
+    background-color:rgb(203, 57, 53);
+    color:white;
   }
 `;
 
@@ -96,6 +100,7 @@ class SwapList extends React.Component {
 
   render() {
     const { swaps, status } = this.state;
+    const {addItem, removeItem, changeItemQty}=this.props;
     return (
       <SWAPLIST className="SwapList">
         <div className="category">
@@ -140,7 +145,7 @@ class SwapList extends React.Component {
               return (
                 <li key={event.id}>
                   <SwapItem
-                    {...event} totalList={this.state.totalList} increment={this.props.increment} decrement={this.props.decrement}
+                    {...event} totalList={this.state.totalList} increment={this.props.increment} decrement={this.props.decrement} addItem={addItem} removeItem={removeItem} changeItemQty={changeItemQty}
                   />
                 </li>
               );
