@@ -43,15 +43,14 @@ class SwapList extends React.Component {
     this.state = {
       swaps: [],
       status: "all",
-      totalList: 0,
+      
     };
     this.food = this.food.bind(this);
     this.clothes = this.clothes.bind(this);
     this.tools = this.tools.bind(this);
     this.livestock = this.livestock.bind(this);
     this.showAll = this.showAll.bind(this);
-    this.increment = this.increment.bind(this);
-    this.decrement = this.decrement.bind(this);
+
   }
   componentDidMount() {
     this.fetchSwaps();
@@ -93,19 +92,7 @@ class SwapList extends React.Component {
     });
   }
 
-  increment() {
-    
-      this.setState({
-        totalList: this.state.totalList + 1,
-      });
-  }
-
-  decrement() {
-    if (this.state.totalItem > 0)
-      this.setState({
-        totalItem: this.props.totalItem - 1,
-      });
-  }
+  
 
   render() {
     const { swaps, status } = this.state;
@@ -153,7 +140,7 @@ class SwapList extends React.Component {
               return (
                 <li key={event.id}>
                   <SwapItem
-                    {...event} totalList={this.state.totalList} increment={this.increment} decrement={this.decrement}
+                    {...event} totalList={this.state.totalList} increment={this.props.increment} decrement={this.props.decrement}
                   />
                 </li>
               );
