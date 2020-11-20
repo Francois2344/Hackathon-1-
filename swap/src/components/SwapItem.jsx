@@ -73,6 +73,10 @@ button {
   transition: ease-in-out 0.2s;
   :active{
     box-shadow:none;
+    color:rgb(203, 57, 53);
+      background-color:white;
+      border:1px;
+      border-color:rgb(203, 57, 53)
   }
 }
 
@@ -117,6 +121,8 @@ button {
   transition: ease-in-out 0.2s;
   :active{
     box-shadow:none;
+    
+  }
 
   .swapDetail {
     width: 2rem;
