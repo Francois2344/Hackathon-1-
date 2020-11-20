@@ -72,7 +72,7 @@ render() {
                 <img src= {Knight} alt='profile logo'/>
             </FooterAccount></Link>
             <TotalItem>
-                <p>1</p>
+                <p>{this.props.totalList}</p>
             </TotalItem>
             <BasketWrap>
                 <img src= {Pannier} alt='pannier' />
