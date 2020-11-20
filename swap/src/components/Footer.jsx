@@ -70,6 +70,18 @@ const FooterWrap = styled.div`
     transform: translateY(-0.65rem) translateX(-0.4rem);
     display: none;
   }
+  .tradeButton{
+      background-color:rgb(203, 57, 53);
+      outline:none;
+      border:none;
+      border-radius:15px;
+      color:white;
+      box-shadow: 2px 2px 2px rgba(191, 196, 196, 0.4);
+      transition: ease-in-out 0.3s;
+      :active{
+        box-shadow:none;
+      }
+  }
 `;
 
 const FooterAccount = styled.div`
@@ -115,15 +127,11 @@ class Footer extends Component {
     });
   }
 
-  complete(){
-      if(this.props.totalList !== 0){
-      alert('Trade is complited!');
-      }
-  }
-
+  
   render() {
-    const { totalList, totalListValue } = this.props;
+    const { totalList, totalListValue, cartItems } = this.props;
     const { hidden } = this.state;
+    console.log(this.reset)
     return (
       <FooterWrap>
         <Link to="/Account">
@@ -142,9 +150,13 @@ class Footer extends Component {
             this.state.hidden ? "BasketSliderOpen" : "BasketSliderClose"
           }
         >
-            <p>Total:</p>
-            <p>{totalListValue}</p>
-            <button onCLick={this.complete}>Trade!</button>
+          <p>Total:</p>
+          <p>
+            {cartItems.reduce((acc, el) => {
+              return acc + el.value * el.quantity;
+            }, 0)}
+          </p>
+          <button className='tradeButton' onCLick={this.reset}>Trade!</button>
         </div>
       </FooterWrap>
     );
