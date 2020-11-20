@@ -7,10 +7,12 @@ const DIV = styled.div`
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin-top: 40%;
+    padding-top: 7.5rem;
+    padding-bottom: 5rem;
+    line-height: 2;
   }
   .yourProduct {
-    padding: 30px;
+    padding: 10px;
   }
 
   .productdepo {
@@ -20,15 +22,23 @@ const DIV = styled.div`
   }
 
   select {
-    width: 80%;
+    width: 100%;
     text-align: center;
     align-self: center;
+    margin: 0;
   }
   input {
     display: flex;
     height: 30%;
     width: 100%;
     border: 2px solid #cb4435;
+  }
+  .yourProduct {
+    width: auto;
+    height: 20vh;
+  }
+  .url {
+    width: 10rem;
   }
   .myButton {
     box-shadow: inset 0px 1px 0px -37px #cf866c;
@@ -107,12 +117,14 @@ function Deposit() {
             src={form.image}
             alt=""
           />
+          <label htmlFor="location">Your image
           <input
+          className="url"
           type="url"
           name="image"
           onChange={(e) => handleChange(e)}
-          ></input>
-          <label htmlFor="category">
+          /></label>
+          <label htmlFor="category" className="productCategory">
             Category
             <select
               onChange={(e) => handleChange(e)}
@@ -227,10 +239,10 @@ function Deposit() {
               max="300"
               onChange={(e) => handleChange(e)}
             /></label>
-            <button className="myButton" onClick={handleSubmit}>
+          </div>
+          <button className="myButton" onClick={handleSubmit}>
               Troc
             </button>
-          </div>
         </depo>
       </div>
     </DIV>
