@@ -181,7 +181,7 @@ class SwapItem extends Component {
               <h4 className="quantity">Quantity : {quantity}</h4>
             </div>
             <div className="swapLocation">
-              <h4 className="location">Value : {value}</h4>
+              <h4 className="location">$wappy : {value}</h4>
             </div>
             <div className="swapLocation">
               <h4 className="location">Where : {location}</h4>

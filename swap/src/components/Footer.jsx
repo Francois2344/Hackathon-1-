@@ -157,7 +157,7 @@ class Footer extends Component {
           <p>
             {cartItems.reduce((acc, el) => {
               return acc + el.value * el.quantity;
-            }, 0)}
+            }, 0)} $wappy
           </p>
           <button className='tradeButton' onCLick={this.reset}>Trade!</button>
         </div>

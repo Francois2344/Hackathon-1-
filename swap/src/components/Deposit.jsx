@@ -11,6 +11,9 @@ const DIV = styled.div`
     padding-bottom: 5rem;
     line-height: 2;
   }
+  .Deposit{
+    font-size:2rem;
+  }
   .yourProduct {
     padding: 10px;
   }
@@ -112,7 +115,7 @@ function Deposit() {
     <DIV>
       <div className="deposit">
         <depo onSubmit={(e) => handleSubmit(e)}>
-          <label htmlFor="your-deposit">Your Deposit</label>
+          <label className='Deposit' htmlFor="your-deposit">Your Deposit</label>
           <img
             className="yourProduct"
             src={form.image}
