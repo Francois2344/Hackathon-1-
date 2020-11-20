@@ -2,6 +2,13 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
+const Total = styled.div`
+  text-align: center;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+`;
+
 const DIV = styled.div`
 
 display: flex;
@@ -16,6 +23,7 @@ background-color: rgba(203, 67, 53, 0.7);
 border-radius: 10px;
 box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
 font-size: 0.75em;
+color:white;
 
 .category {
   color: black;
@@ -61,6 +69,11 @@ button {
   border-radius: 15px;
   outline: none;
   border: none;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  transition: ease-in-out 0.2s;
+  :active{
+    box-shadow:none;
+  }
 }
 
 .swapDetail {
@@ -84,6 +97,7 @@ button {
   border-radius: 5px;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
   font-size: 0.75em;
+  color:white;
 
   .swapPhoto {
     width: 9rem;
@@ -99,6 +113,10 @@ button {
     text-align: center;
     margin: 1rem;
     border-radius: 15px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  transition: ease-in-out 0.2s;
+  :active{
+    box-shadow:none;
 
   .swapDetail {
     width: 2rem;
@@ -114,9 +132,9 @@ class SwapItem extends Component {
     super(props);
     this.state = {
       isAdded: true,
-      totalItem:0,
+      totalItem: 0,
+      totalItemValue: 0,
     };
-    
   }
 
   addToCart() {
@@ -126,8 +144,21 @@ class SwapItem extends Component {
   }
 
   render() {
-    const { name, image, category, location, quantity, value, id, increment, decrement } = this.props;
-    const {totalItem}= this.state;
+    const {
+      name,
+      image,
+      category,
+      location,
+      quantity,
+      value,
+      id,
+      increment,
+      decrement,
+      addItem,
+      removeItem,
+      changeItemQty,
+    } = this.props;
+    const { totalItem, totalItemValue } = this.state;
     return (
       <div>
         <DIV>
@@ -152,25 +183,45 @@ class SwapItem extends Component {
           </div>
           <div className="addToCart">
             <button
-              onClick={() =>{
-                if(totalItem  < quantity){
-                  this.setState({totalItem: totalItem + 1});
+              onClick={() => {
+                if (totalItem < quantity) {
+                  this.setState({ 
+                    totalItem: totalItem + 1,
+                    totalItemValue: (totalItem + 1) * value  });
                   increment();
-        
+                  if(totalItem===0){
+                    addItem({
+                      id:id,
+                      quantity: totalItem + 1,
+                      value: value,
+                    })
+                  } else {
+                    changeItemQty(id,totalItem +1)
+                  }
                 }
               }}
             >
               {" "}
               +{" "}
             </button>
-            <div>{totalItem}
-            </div>
+            <Total>
+              <p>{totalItem}</p>
+            </Total>
             <button
-            onClick={() => {
-                if(totalItem>0) {
-                  this.setState({totalItem: totalItem - 1});
+              onClick={() => {
+                if (totalItem > 0) {
+                  this.setState({ totalItem: totalItem - 1 });
                   decrement();
-                };
+                  if(totalItem!==0){
+                    removeItem({
+                      id:id,
+                      quantity: totalItem - 1,
+                      value: value,
+                    })
+                  } else {
+                    changeItemQty(id,totalItem - 1)
+                  }
+                }
               }}
             >
               {" "}

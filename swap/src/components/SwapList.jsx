@@ -33,7 +33,11 @@ const SWAPLIST = styled.div`
     outline-style: none;
     border-radius: 10px;
     margin: 0.5rem;
-    width: 5rem;
+    width: 4rem;
+    outline:none;
+    border:none;
+    background-color:rgb(203, 57, 53);
+    color:white;
   }
 `;
 
@@ -96,6 +100,7 @@ class SwapList extends React.Component {
 
   render() {
     const { swaps, status } = this.state;
+    const {addItem, removeItem, changeItemQty}=this.props;
     return (
       <SWAPLIST className="SwapList">
         <div className="category">
@@ -140,7 +145,7 @@ class SwapList extends React.Component {
               return (
                 <li key={event.id}>
                   <SwapItem
-                    {...event} totalList={this.state.totalList} increment={this.props.increment} decrement={this.props.decrement}
+                    {...event} totalList={this.state.totalList} increment={this.props.increment} decrement={this.props.decrement} addItem={addItem} removeItem={removeItem} changeItemQty={changeItemQty}
                   />
                 </li>
               );
