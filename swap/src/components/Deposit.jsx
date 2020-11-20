@@ -132,10 +132,10 @@ function Deposit() {
               id="category"
             >
               <option value="">Select your category</option>
-              <option value="Food">Food</option>
-              <option value="Clothes">Clothes</option>
-              <option value="Tools">Tools</option>
-              <option value="Livestock">Livestock</option>
+              <option value="food">Food</option>
+              <option value="clothes">Clothes</option>
+              <option value="tools">Tools</option>
+              <option value="livestock">Livestock</option>
             </select>
           </label>
           <label htmlFor="name">
@@ -149,74 +149,74 @@ function Deposit() {
             >
               <option value="">Select your product</option>
               <option
-                disabled={form.category !== "Food" ? "disabled" : ""}
+                disabled={form.category !== "food" ? "disabled" : ""}
                 value="RED WINE"
               >
                 RED WINE
               </option>
               <option
-                disabled={form.category !== "Food" ? "disabled" : ""}
+                disabled={form.category !== "food" ? "disabled" : ""}
                 value="QUAIL EGGS"
               >
                 QUAIL EGGS
               </option>
               <option
-                disabled={form.category !== "Livestock" ? "disabled" : ""}
+                disabled={form.category !== "livestock" ? "disabled" : ""}
                 value="BOAR"
               >
                 BOAR
               </option>
               <option
-                disabled={form.category !== "Clothes" ? "disabled" : ""}
+                disabled={form.category !== "clothes" ? "disabled" : ""}
                 value="ARMOUR"
               >
                 ARMOUR
               </option>
               <option
-                disabled={form.category !== "Tools" ? "disabled" : ""}
+                disabled={form.category !== "tools" ? "disabled" : ""}
                 value="SICKLE"
               >
                 SICKLE
               </option>
               <option
-                disabled={form.category !== "Tools" ? "disabled" : ""}
+                disabled={form.category !== "tools" ? "disabled" : ""}
                 value="GRINDING WHEEL"
               >
                 GRINDING WHEEL
               </option>
               <option
-                disabled={form.category !== "Livestock" ? "disabled" : ""}
+                disabled={form.category !== "livestock" ? "disabled" : ""}
                 value="HORSES"
               >
                 HORSES
               </option>
               <option
-                disabled={form.category !== "Clothes" ? "disabled" : ""}
+                disabled={form.category !== "clothes" ? "disabled" : ""}
                 value="DRESS"
               >
                 DRESS
               </option>
               <option
-                disabled={form.category !== "Clothes" ? "disabled" : ""}
+                disabled={form.category !== "clothes" ? "disabled" : ""}
                 value="PAIR OF SANDALS"
               >
                 PAIR OF SANDALS
               </option>
               <option
-                disabled={form.category !== "Clothes" ? "disabled" : ""}
+                disabled={form.category !== "clothes" ? "disabled" : ""}
                 value="CAP"
               >
                 CAP
               </option>
               <option
-                disabled={form.category !== "Food" ? "disabled" : ""}
+                disabled={form.category !== "food" ? "disabled" : ""}
                 className="Food"
                 value="POTATOES"
               >
                 POTATOES
               </option>
               <option
-                disabled={form.category !== "Livestock" ? "disabled" : ""}
+                disabled={form.category !== "livestock" ? "disabled" : ""}
                 value="PORK"
               >
                 PORK
