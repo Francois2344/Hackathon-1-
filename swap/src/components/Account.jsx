@@ -124,12 +124,12 @@ class Account extends Component {
             />
           </label>
           <fieldset>
-            <legend>Mes coordonnées GPS</legend>
-            <div>latitude : {localStorage.getItem("latitude")}</div>
-            <div>longitude : {localStorage.getItem("longitude")}</div>
+            <legend>GPS location</legend>
+            <div>lat. : {localStorage.getItem("latitude")}</div>
+            <div>long. : {localStorage.getItem("longitude")}</div>
           </fieldset>
           <button type="button" onClick={this.handleClick}>
-            {formEnabled ? "Enregistrer" : "Modifier"}
+            {formEnabled ? "Save" : "Modify"}
           </button>
         </form>
       </Main>
